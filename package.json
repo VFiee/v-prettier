@@ -1,0 +1,25 @@
+{
+  "name": "v-prettier",
+  "version": "1.0.0",
+  "description": "prettier config for vue",
+  "main": "index.js",
+  "repository": "https://github.com/VFiee/v-prettier",
+  "author": "vyron",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "enquirer": "^2.3.6",
+    "execa": "^5.0.0",
+    "husky": "^4.3.5",
+    "minimist": "^1.2.5",
+    "semver": "^7.3.4"
+  },
+  "scripts": {
+    "release": "node script/release.js"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "node script/verifyCommit.js"
+    }
+  }
+}
