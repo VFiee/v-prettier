@@ -65,10 +65,6 @@ const updateVersion = version => {
 	const pkg = getPkg()
 	pkg.version = version
 	fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n")
-	// 更新示例版本号
-	const examplePkg = getPkg(null, examplePkgPath)
-	examplePkg.version = version
-	fs.writeFileSync(examplePkgPath, JSON.stringify(examplePkg, null, 2) + "\n")
 }
 
 // 选择版本
@@ -166,18 +162,10 @@ const pushToGithub = async () => {
 	progress("🎉🎉🎉Pushing to GitHub success!")
 }
 
-const publishMiniProgram = async () => {
-	const execCwd = path.resolve(__dirname, "../example")
-	const version = getPkg("version")
-	await run("yarn", ["build"], { cwd: execCwd })
-	await run("yarn", ["pub", "-d", `release ${version}`], { cwd: execCwd })
-}
-
 const release = () =>
 	checkCurrentBranch()
 		.then(chooseVersion)
 		.then(updateVersion)
-		.then(generateChanlog)
 		.then(commitChanges)
 		.then(publishPackage)
 		.then(pushToGithub)
