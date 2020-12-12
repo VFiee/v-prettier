@@ -1,11 +1,15 @@
 {
   "name": "v-prettier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "prettier config for vue",
   "main": "index.js",
   "repository": "https://github.com/VFiee/v-prettier",
   "author": "vyron",
   "license": "MIT",
+  "files": [
+    "index.js",
+    "package.json"
+  ],
   "devDependencies": {
     "chalk": "^4.1.0",
     "enquirer": "^2.3.6",
